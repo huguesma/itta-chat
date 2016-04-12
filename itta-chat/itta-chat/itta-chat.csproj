@@ -98,6 +98,7 @@
     <Content Include="Scripts\jquery-1.12.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\IClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
