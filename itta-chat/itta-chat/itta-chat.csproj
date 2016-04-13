@@ -115,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\IClient.cs" />
+    <Compile Include="App_Code\chatHub.cs" />
+    <Content Include="App_Code\Chatuser.cs" />
+    <Compile Include="App_Code\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
