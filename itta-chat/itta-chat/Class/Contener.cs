@@ -7,8 +7,8 @@ namespace itta_chat.Class
 {
     public static class Contener
     {
-        private static ICollection<ChatUser> userlist;
-        private static ICollection<Messages> messagelist;
+        private static ICollection<ChatUser> userlist = new List<ChatUser>();
+        private static ICollection<Messages> messagelist = new List<Messages>();
 
         public static ICollection<ChatUser> Userlist
         {

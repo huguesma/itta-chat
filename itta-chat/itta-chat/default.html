@@ -27,40 +27,8 @@
                             <div class="panel-heading">
                                 <h2 class="panel-title">Utilisateurs connecté !</h2>
                             </div>
-                            <div class="panel-body" style="overflow-y:scroll; max-height:100px;">
+                            <div class="panel-body" id="cnxUser" style="overflow-y:scroll; max-height:100px;">
                                 <dl>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
-                                    <dd><input name="user" id="test" type="radio" value="UserID2" />Marc</dd>
                                 </dl>
                             </div>
                         </div>
@@ -79,12 +47,14 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-4">
-                                <span class="label label-success">Connecté</span>
-                                <span class="label label-danger">Non connecté</span>
+                                <span id="cnxOn" class="label label-success">Connecté</span>
+                                <span id="cnxOff" class="label label-danger">Non connecté</span>
 
                             </div>
                             <div class="col-xs-8">
-                                <button class="btn btn-default">Login</button>
+                                <button id="btnLogin" class="btn btn-primary">Se connecter</button>
+                                <div class="alert alert-danger" id="errorLogin">Merci d'entrer un nom d'utilisateur</div>
+                                <button id="btnLogoff" class="btn btn-primary">Se déconnecter</button>
                             </div>
                         </div>
                     </div>
@@ -108,7 +78,6 @@
                                 <div class="panel-body">
                                     <ul class="chat">
                                         <li class="left clearfix">
-
                                             <div class="chat-body clearfix">
                                                 <div class="header">
                                                     <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
@@ -122,37 +91,9 @@
                                             </div>
                                         </li>
                                         <li class="right clearfix">
-
                                             <div class="chat-body clearfix">
                                                 <div class="header">
                                                     <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                                </div>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                    dolor, quis ullamcorper ligula sodales.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="left clearfix">
-
-                                            <div class="chat-body clearfix">
-                                                <div class="header">
-                                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                                        <span class="glyphicon glyphicon-time"></span>14 mins ago
-                                                    </small>
-                                                </div>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                                    dolor, quis ullamcorper ligula sodales.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="right clearfix">
-
-                                            <div class="chat-body clearfix">
-                                                <div class="header">
-                                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
                                                     <strong class="pull-right primary-font">Bhaumik Patel</strong>
                                                 </div>
                                                 <p>
@@ -181,11 +122,7 @@
                  
 
                 </div>
-                <div class="row">
-                    <div class="col-xs-6"><button class="btn btn-primary">Se déconnecter</button></div>
-
-
-                </div>
+                
             </div>
         </div>
     </div><!-- /.container -->
