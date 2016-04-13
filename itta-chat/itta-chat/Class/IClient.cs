@@ -10,7 +10,7 @@ namespace itta_chat
     {
         void CheckConnect(bool connected);
         void ListUser(ICollection<ChatUser> listusers);
-        void RecepMessage(ICollection<dynamic> messages);
+        void RecepMessage(ICollection<Messages> messages);
         void ValidLogout(bool connected);
     }
 }
