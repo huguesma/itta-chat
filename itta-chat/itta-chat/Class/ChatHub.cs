@@ -29,6 +29,17 @@ public class ChatHub : Hub<IClient>
         }
 
     }
+    public void Update(String username) {
+        var user = Contener.Userlist.ToList().Where(x => x.Username == username).FirstOrDefault();
+        if (user != null) {
+            user.Connectioid = Context.ConnectionId;
+            Clients.Client(Context.ConnectionId).RetrevepMessages(Contener.Messagelist.ToList().Where(m => m.userfrom.Username == username || m.userto.Username == username).ToList());
+
+        } else {
+            Clients.Client(Context.ConnectionId).cleanCookie();
+        }
+
+    }
 
     public void OnLogout(String username)
     {
@@ -71,8 +82,8 @@ public class ChatHub : Hub<IClient>
         message.Message = text;
 
 
-
-      //  Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
+        Contener.Messagelist.Add(message);
+        //Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
         Clients.Client(message.userto.Connectioid).RecepMessage(message);
 
         
