@@ -42,7 +42,7 @@ public class ChatHub : Hub<IClient>
             var chatuser = new ChatUser();
             chatuser.Connectioid = cid;
             chatuser.Username = username;
-            chatuser.Status = true;
+            chatuser.Status = false;
 
             Contener.Userlist.Remove(chatuser);
 
@@ -59,6 +59,7 @@ public class ChatHub : Hub<IClient>
     public override Task OnConnected()
     {
         string cid = Context.ConnectionId;
+        Clients.Client(cid).ListUser(Contener.Userlist);
         return base.OnConnected();
     }
     public override Task OnReconnected()
