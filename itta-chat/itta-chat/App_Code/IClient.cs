@@ -12,6 +12,5 @@ namespace itta_chat
         void ListUser(ICollection<dynamic> listusers);
         void RecepMessage(ICollection<dynamic> messages);
         void ValidLogout(bool connected);
-        
     }
 }

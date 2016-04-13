@@ -12,6 +12,7 @@ public class chatHub : Hub
 
     public void OnLogg(String username)
     {
+       
     }
 
     public void SendMessage()
