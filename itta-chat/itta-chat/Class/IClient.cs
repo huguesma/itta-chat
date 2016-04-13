@@ -9,7 +9,7 @@ namespace itta_chat
     public interface IClient
     {
         void CheckConnect(bool connected);
-        void ListUser(ICollection<dynamic> listusers);
+        void ListUser(ICollection<ChatUser> listusers);
         void RecepMessage(ICollection<dynamic> messages);
         void ValidLogout(bool connected);
     }

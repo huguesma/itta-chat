@@ -17,6 +17,17 @@ public class ChatHub : Hub<IClient>
         String cid = Context.ConnectionId;
         bool result = list.ToList().Where(x => x.Username == username).FirstOrDefault() == null;
         Clients.Client(cid).CheckConnect(result);
+
+        if (result)
+        {
+            var chatuser = new ChatUser();
+            chatuser.Connectioid = cid;
+            chatuser.Username = username;
+            chatuser.Status = true;
+            Contener.Userlist.Add(chatuser);
+            Clients.All.ListUser(Contener.Userlist);
+        }
+
     }
 
     public void SendMessage()
