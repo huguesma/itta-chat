@@ -118,6 +118,7 @@
     <Compile Include="App_Code\IClient.cs" />
     <Compile Include="App_Code\chatHub.cs" />
     <Compile Include="App_Code\Message.cs" />
+    <Content Include="App_Code\Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
