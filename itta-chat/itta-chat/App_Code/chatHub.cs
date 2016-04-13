@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using itta_chat;
+using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 
 [HubName("chatHub")]
-public class chatHub : Hub
+public class chatHub : Hub<IClient>
 {
 
     public void OnLogg(String username)
