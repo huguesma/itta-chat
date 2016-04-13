@@ -18,9 +18,9 @@ public class Startup
         // disconecter après x secondes d'inactivité
         //GlobalHost.Configuration.ConnectionTimeout = TimeSpan.FromSeconds(110);
         //
-        var hubConfiguration = new HubConfiguration();
-        hubConfiguration.EnableDetailedErrors = true;
-        hubConfiguration.EnableJSONP = false;
+        //var hubConfiguration = new HubConfiguration();
+        //hubConfiguration.EnableDetailedErrors = true;
+        //hubConfiguration.EnableJSONP = false;
         app.MapSignalR();
     }
 }

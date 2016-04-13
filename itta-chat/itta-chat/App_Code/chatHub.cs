@@ -7,8 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-[HubName("chatHub")]
-public class chatHub : Hub<IClient>
+public class ChatHub : Hub<IClient>
 {
 
     public void OnLogg(String username)
