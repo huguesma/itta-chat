@@ -52,8 +52,20 @@ public class ChatHub : Hub<IClient>
     }
 
 
-    public void SendMessage()
+    public void SendMessage(String userfrom, String userto,String text)
     {
+        Messages message = new Messages();
+
+        message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
+        message.userto = Contener.Userlist.ToList().Where(x => x.Username ==userto).FirstOrDefault();
+
+        message.Message = text;
+
+
+
+        Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
+        Clients.Client(message.userto.Connectioid).RecepMessage(message);
+
     }
 
     public override Task OnConnected()

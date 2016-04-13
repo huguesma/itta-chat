@@ -6,8 +6,8 @@ using System.Linq;
 namespace itta_chat {
     public class Messages {
 
-        ChatUser userfrom;
-        ChatUser userto;
+        public ChatUser userfrom;
+        public ChatUser userto;
         String message;
         bool stat_message;
         DateTime datetime_message;
