@@ -56,8 +56,15 @@ public class ChatHub : Hub<IClient>
     {
         Messages message = new Messages();
 
-        message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
-        message.userto = Contener.Userlist.ToList().Where(x => x.Username ==userto).FirstOrDefault();
+        ICollection<ChatUser> listuser = Contener.Userlist;
+
+        message.userfrom = listuser.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
+        message.userto = listuser.ToList().Where(x => x.Username == userto).FirstOrDefault();
+
+       
+
+        //message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
+        //message.userto = Contener.Userlist.ToList().Where(x => x.Username ==userto).FirstOrDefault();
         message.Datetime_message = DateTime.Now;
            
 
@@ -65,7 +72,7 @@ public class ChatHub : Hub<IClient>
 
 
 
-        Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
+      //  Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
         Clients.Client(message.userto.Connectioid).RecepMessage(message);
 
         
