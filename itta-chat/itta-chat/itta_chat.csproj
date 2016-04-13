@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\ChatUser.cs" />
+    <Compile Include="Class\Contener.cs" />
     <Compile Include="Class\IClient.cs" />
     <Compile Include="Class\ChatHub.cs" />
     <Compile Include="Class\Message.cs" />

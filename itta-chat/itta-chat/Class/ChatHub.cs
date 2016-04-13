@@ -1,4 +1,5 @@
 ﻿using itta_chat;
+using itta_chat.Class;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
 using System;
@@ -12,7 +13,10 @@ public class ChatHub : Hub<IClient>
 
     public void OnLogg(String username)
     {
-       
+        ICollection<ChatUser> list = Contener.Userlist;
+        String cid = Context.ConnectionId;
+        bool result = list.ToList().Where(x => x.Username == username).FirstOrDefault() == null;
+        Clients.Client(cid).CheckConnect(result);
     }
 
     public void SendMessage()
