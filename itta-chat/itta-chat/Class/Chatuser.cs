@@ -27,6 +27,23 @@ namespace itta_chat {
             set { status = value; }
         }
 
+        public override bool Equals(object obj)
+        {
+            // If parameter is null return false.
+            if (obj == null)
+            {
+                return false;
+            }
+
+            // If parameter cannot be cast to Point return false.
+            if(obj.GetType() == typeof(ChatUser))
+            {
+                return this.username == ((ChatUser)obj).Username;
+            }
+
+            // Return true if the fields match:
+            return false;
+        }
 
     }
 }
