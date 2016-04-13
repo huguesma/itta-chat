@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 
 
-    public class Message 
-    {
+
+namespace itta_chat {
+    public class Message {
+        
         //ChatUser userfrom;
         //Chatuser userto;
         String message;
@@ -13,3 +15,4 @@ using System.Web;
         DateTime datetime_message;
 
     }
+}
