@@ -58,6 +58,8 @@ public class ChatHub : Hub<IClient>
 
         message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
         message.userto = Contener.Userlist.ToList().Where(x => x.Username ==userto).FirstOrDefault();
+        message.Datetime_message = DateTime.Now;
+           
 
         message.Message = text;
 
@@ -66,6 +68,7 @@ public class ChatHub : Hub<IClient>
         Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
         Clients.Client(message.userto.Connectioid).RecepMessage(message);
 
+        
     }
 
     public override Task OnConnected()
