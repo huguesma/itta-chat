@@ -1,9 +1,192 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>Chat online with WS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="Scripts/jquery-1.12.2.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="signalr/hubs"></script>
+    <link href="Content/chat.css" rel="stylesheet" />
 </head>
 <body>
-    
+    <div class="container body-content">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Online chat !</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Utilisateurs connecté !</h2>
+                            </div>
+                            <div class="panel-body" style="overflow-y:scroll; max-height:100px;">
+                                <dl>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID1" />John</dd>
+                                    <dd><input name="user" id="test" type="radio" value="UserID2" />Marc</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="row ">
+                            <div class="col-xs-4">
+                                <label class="control-label" for="login">
+                                    Pseudo :
+                                </label>
+                            </div>
+                            <div class="col-xs-8">
+                                <input id="login" name="login" type="text" class="form-control text-box single-line" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <span class="label label-success">Connecté</span>
+                                <span class="label label-danger">Non connecté</span>
+
+                            </div>
+                            <div class="col-xs-8">
+                                <button class="btn btn-default">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12"><div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span> Message recus de John</div></div>
+                </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading" id="accordion">
+                                    <span class="glyphicon glyphicon-comment"></span> Chat
+                                    <div class="btn-group pull-right">
+                                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="panel-collapse collapse" id="collapseOne">
+                                    <div class="panel-body">
+                                        <ul class="chat">
+                                            <li class="left clearfix">
+                                                <span class="chat-img pull-left">
+                                                    <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                                            <span class="glyphicon glyphicon-time"></span>12 mins ago
+                                                        </small>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                        dolor, quis ullamcorper ligula sodales.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix">
+                                                <span class="chat-img pull-right">
+                                                    <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+                                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                        dolor, quis ullamcorper ligula sodales.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="left clearfix">
+                                                <span class="chat-img pull-left">
+                                                    <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
+                                                            <span class="glyphicon glyphicon-time"></span>14 mins ago
+                                                        </small>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                        dolor, quis ullamcorper ligula sodales.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="right clearfix">
+                                                <span class="chat-img pull-right">
+                                                    <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle" />
+                                                </span>
+                                                <div class="chat-body clearfix">
+                                                    <div class="header">
+                                                        <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
+                                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                                    </div>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
+                                                        dolor, quis ullamcorper ligula sodales.
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="input-group">
+                                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning btn-sm" id="btn-chat">
+                                                    Send
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div><!-- /.container -->
 </body>
 </html>
