@@ -83,7 +83,7 @@ public class ChatHub : Hub<IClient>
 
 
         Contener.Messagelist.Add(message);
-        //Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
+        Clients.Client(message.userfrom.Connectioid).RecepMessage(message);
         Clients.Client(message.userto.Connectioid).RecepMessage(message);
 
         
