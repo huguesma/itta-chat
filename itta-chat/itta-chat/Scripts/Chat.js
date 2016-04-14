@@ -68,8 +68,6 @@
         for (var k in listusers) {
             console.log(k, listusers[k]);
             if (listusers[k].Username != $('#login').val()) {
-                
-
                 console.log("La fenetre existe : "+ $('#' + listusers[k].Username + ' ul').length)
                 if ($('#' + listusers[k].Username + ' ul').length == 0) {
                     generateChatWindows(listusers[k].Username, listusers[k].Username);
@@ -85,7 +83,6 @@
                 }
                 console.log(inputT);
                 dd.append(inputT).append(listusers[k].Username);
-
                 $('#cnxUser dl').append(dd);
             }
         }
@@ -189,7 +186,7 @@ function sendMessage() {
         console.log("Destinataire : " + to);
         console.log("Texte : " + $('#btn-input' + to + '').val());
         window.hubChat.server.sendMessage($('#login').val(), to, $('#btn-input' + to + '').val());
-        window.addChat($('#login').val(), $('#btn-input' + to + '').val(), $.now(), to);
+        //window.addChat($('#login').val(), $('#btn-input' + to + '').val(), $.now(), to);
         console.log(window.hubChat);
         $('#btn-input' + to + '').val('');
     }
