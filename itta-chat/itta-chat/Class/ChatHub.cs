@@ -65,6 +65,9 @@ public class ChatHub : Hub<IClient>
 
     public void SendMessage(String userfrom, String userto,String text)
     {
+
+        DateTime dt = DateTime.Now; // Or whatever
+        String sdate = dt.ToString("mm.ss HH - dd-MM-yyyy");
         Messages message = new Messages();
 
         ICollection<ChatUser> listuser = Contener.Userlist;
@@ -76,7 +79,7 @@ public class ChatHub : Hub<IClient>
 
         //message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
         //message.userto = Contener.Userlist.ToList().Where(x => x.Username ==userto).FirstOrDefault();
-        message.Datetime_message = DateTime.Now;
+        message.Datetime_message = sdate;
            
 
         message.Message = text;

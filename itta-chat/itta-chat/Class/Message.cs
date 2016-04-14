@@ -10,7 +10,7 @@ namespace itta_chat {
         public ChatUser userto;
         String message;
         bool stat_message;
-        DateTime datetime_message;
+        String datetime_message;
 
 
         public String Message
@@ -25,7 +25,7 @@ namespace itta_chat {
             set { stat_message = value; }
         }
 
-        public DateTime Datetime_message
+        public String Datetime_message
         {
             get { return datetime_message; }
             set { datetime_message = value; }
