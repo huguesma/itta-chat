@@ -76,7 +76,7 @@ public class ChatHub : Hub<IClient>
 
         message.userfrom = listuser.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
         message.userto = listuser.ToList().Where(x => x.Username == userto).FirstOrDefault();
-        message.DateMes = DateTime.Now;
+        message.DateMes = dt;
        
 
         //message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
