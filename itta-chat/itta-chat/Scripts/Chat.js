@@ -42,7 +42,7 @@
             $('.chatPanel').remove();
             $('input[name=user]:checked').prop('checked', false);
             deleteAllCookies();
-        } 
+        }
     };
     hubChat.client.cleanCookie = function () {
         deleteAllCookies();
@@ -73,7 +73,7 @@
         for (var k in listusers) {
             console.log(k, listusers[k]);
             if (listusers[k].Username != $('#login').val()) {
-                console.log("La fenetre existe : "+ $('#' + listusers[k].Username + ' ul').length)
+                console.log("La fenetre existe : " + $('#' + listusers[k].Username + ' ul').length)
                 if ($('#' + listusers[k].Username + ' ul').length == 0) {
                     generateChatWindows(listusers[k].Username, listusers[k].Username);
                 }
@@ -83,8 +83,8 @@
                 if (select == listusers[k].Username) {
                     console.log('Cest le bon user : ' + select);
                     inputT.prop('checked', true);
-                }else{
-                    console.log('Non Cest pas le bon user : ' + select + ' '+ (select == listusers[k].Username));
+                } else {
+                    console.log('Non Cest pas le bon user : ' + select + ' ' + (select == listusers[k].Username));
                 }
                 console.log(inputT);
                 dd.append(inputT).append(listusers[k].Username);
@@ -103,12 +103,12 @@
         console.log("Message : " + message.Message);
         console.log("Time : " + message.Datetime_message);
         console.log("Time : " + message.userto.Username);
-        if (message.userfrom.Username != $('#login').val()){
+        if (message.userfrom.Username != $('#login').val()) {
             $('#alert div').html('<span class="glyphicon glyphicon-warning-sign"></span>Message de ' + message.userfrom.Username);
             $('#alert').show();
             $('#alert').fadeOut(10000);
         }
-        addChat(message.userfrom.Username, message.Message, message.Datetime_message,  message.userto.Username);
+        addChat(message.userfrom.Username, message.Message, message.Datetime_message, message.userto.Username);
     };
     window.hubChat = hubChat;
     $.connection.hub.start().done(
@@ -119,7 +119,7 @@
             }
             $('#btnLogin').click(function () {
                 if ($('#login').val() != '') {
-                    document.cookie = "username="+$('#login').val();
+                    document.cookie = "username=" + $('#login').val();
                     hubChat.server.onLogg($('#login').val());
                     $('#errorLogin').hide();
                 } else {
@@ -127,7 +127,18 @@
                 }
             });
             $('#btnLogoff').click(function () {
-                    hubChat.server.onLogout($('#login').val());
+                hubChat.server.onLogout($('#login').val());
+            });
+            $('#login').keypress(function (e) {
+                if (e.which == 13) {
+                    if ($('#login').val() != '') {
+                        document.cookie = "username=" + $('#login').val();
+                        hubChat.server.onLogg($('#login').val());
+                        $('#errorLogin').hide();
+                    } else {
+                        $('#errorLogin').show();
+                    }
+                };
             });
         }
     );
@@ -140,7 +151,7 @@
         var ul = $('<ul/>').addClass('chat');
         var divPanelFooter = $('<div/>').addClass('panel-footer');
         var divInput = $('<div/>').addClass('input-group');
-        var input = $('<input/>').addClass('form-control input-sm').attr('id', 'btn-input' + id).attr('placeholder', 'Votre texte...');
+        var input = $('<input/>').addClass('form-control input-sm').attr('id', 'btn-input' + id).attr('placeholder', 'Votre texte...').keypress(sendKeyMessage);
         var spanButton = $('<span/>').addClass('input-group-btn');
         var button = $('<button/>').addClass('btn btn-warning btn-sm btnSend').click(sendMessage).text('Envoyer');
         spanButton.append(button);
@@ -159,7 +170,7 @@
         $('#chatList').append(divCol);
 
     }
-    
+
     function addChat(from, text, time, to) {
         var pos = 'right';
         var id = from;
@@ -190,14 +201,20 @@ function sendMessage() {
     if (!to) {
         alert('Merci de choisir un destinataire');
     } else {
-        console.log("Destinataire : " + to);
-        console.log("Texte : " + $('#btn-input' + to + '').val());
-        window.hubChat.server.sendMessage($('#login').val(), to, $('#btn-input' + to + '').val());
-        console.log(window.hubChat);
-        $('#btn-input' + to + '').val('');
+        if ($('#btn-input' + to + '').val().length > 0) {
+            console.log("Destinataire : " + to);
+            console.log("Texte : " + $('#btn-input' + to + '').val());
+            window.hubChat.server.sendMessage($('#login').val(), to, $('#btn-input' + to + '').val());
+            console.log(window.hubChat);
+            $('#btn-input' + to + '').val('');
+        }
     }
 }
-
+function sendKeyMessage(e) {
+    if (e.which == 13) {
+        sendMessage();
+    }
+}
 
 
 function getCookie(cname) {
