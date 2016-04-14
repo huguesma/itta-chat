@@ -68,14 +68,15 @@ public class ChatHub : Hub<IClient>
     {
 
         DateTime dt = DateTime.Now; // Or whatever
-        String sdate = dt.ToString("ddd MM yyyy  HH:mm.ss");
+        String sdate = dt.ToString("ddd MM HH:mm.ss");
+       
         Messages message = new Messages();
 
         ICollection<ChatUser> listuser = Contener.Userlist;
 
         message.userfrom = listuser.ToList().Where(x => x.Username == userfrom).FirstOrDefault();
         message.userto = listuser.ToList().Where(x => x.Username == userto).FirstOrDefault();
-
+        message.DateMes = DateTime.Now;
        
 
         //message.userfrom = Contener.Userlist.ToList().Where(x => x.Username == userfrom).FirstOrDefault();

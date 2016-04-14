@@ -11,6 +11,13 @@ namespace itta_chat {
         String message;
         bool stat_message;
         String datetime_message;
+        DateTime dateMes;
+
+        public DateTime DateMes
+        {
+            get { return dateMes; }
+            set { dateMes = value; }
+        }
 
 
         public String Message
