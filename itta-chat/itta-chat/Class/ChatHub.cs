@@ -68,7 +68,7 @@ public class ChatHub : Hub<IClient>
     {
 
         DateTime dt = DateTime.Now; // Or whatever
-        String sdate = dt.ToString("mm.ss HH - dd-MM-yyyy");
+        String sdate = dt.ToString("ddd MM yyyy  HH:mm.ss");
         Messages message = new Messages();
 
         ICollection<ChatUser> listuser = Contener.Userlist;
