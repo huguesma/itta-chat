@@ -61,7 +61,6 @@
         console.log(messages);
         for (var k in messages) {
             console.log(messages[k]);
-
             addChat(messages[k].userfrom.Username, messages[k].Message, messages[k].Datetime_message, messages[k].userto.Username);
         }
     };
@@ -210,6 +209,7 @@ function sendMessage() {
         }
     }
 }
+
 function sendKeyMessage(e) {
     if (e.which == 13) {
         sendMessage();
