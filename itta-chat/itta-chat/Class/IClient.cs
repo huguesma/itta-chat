@@ -13,7 +13,7 @@ namespace itta_chat
         void RecepMessage(Messages messages);
         void RetrevepMessages(ICollection<Messages> messages);
         void ValidLogout(bool connected);
-
+        void LeftUser(String userleft);
         void cleanCookie();
     }
 }

@@ -57,6 +57,7 @@ public class ChatHub : Hub<IClient>
 
             Contener.Userlist.Remove(chatuser);
             Contener.Messagelist.ToList().RemoveAll(x => x.userfrom.Username == username || x.userto.Username == username);
+            Clients.All.LeftUser(username);
             Clients.All.ListUser(Contener.Userlist);
             
         }
