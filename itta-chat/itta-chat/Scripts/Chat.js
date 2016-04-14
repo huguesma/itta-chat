@@ -39,6 +39,8 @@
             $('#login').prop('disabled', false);
             $('#succesLogout').show();
             $('#succesLogout').fadeOut(6000);
+            $('.chatPanel').remove();
+            $('input[name=user]:checked').prop('checked', false);
             deleteAllCookies();
         } 
     };
@@ -50,6 +52,9 @@
         $('#btnLogin').show();
         $('#btnLogoff').hide();
         $('#login').prop('disabled', false);
+    };
+    hubChat.client.leftUser = function (username) {
+        $('#' + username).remove();
     };
     hubChat.client.retrevepMessages = function (messages) {
         console.log('La list ^des MESSAGE ?');
@@ -98,9 +103,11 @@
         console.log("Message : " + message.Message);
         console.log("Time : " + message.Datetime_message);
         console.log("Time : " + message.userto.Username);
-        $('#alert div').html('<span class="glyphicon glyphicon-warning-sign"></span>Message de ' + message.userfrom.Username);
-        $('#alert').show();
-        $('#alert').fadeOut(10000);
+        if (message.userfrom.Username != $('#login').val()){
+            $('#alert div').html('<span class="glyphicon glyphicon-warning-sign"></span>Message de ' + message.userfrom.Username);
+            $('#alert').show();
+            $('#alert').fadeOut(10000);
+        }
         addChat(message.userfrom.Username, message.Message, message.Datetime_message,  message.userto.Username);
     };
     window.hubChat = hubChat;
@@ -186,7 +193,6 @@ function sendMessage() {
         console.log("Destinataire : " + to);
         console.log("Texte : " + $('#btn-input' + to + '').val());
         window.hubChat.server.sendMessage($('#login').val(), to, $('#btn-input' + to + '').val());
-        //window.addChat($('#login').val(), $('#btn-input' + to + '').val(), $.now(), to);
         console.log(window.hubChat);
         $('#btn-input' + to + '').val('');
     }
