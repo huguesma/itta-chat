@@ -15,7 +15,6 @@
         $('#login').prop('disabled', true);
     }
     $('#cnxUser dl').html('');
-
     var hubChat = $.connection.chatHub;
     hubChat.client.checkConnect = function (estConnecte) {
         console.log(estConnecte);
@@ -68,7 +67,6 @@
         console.log(listusers);
         var select = $('input[name=user]:checked').val();
         $('#cnxUser dl').html('');
-
         for (var k in listusers) {
             console.log(k, listusers[k]);
             if (listusers[k].Username != $('#login').val()) {
@@ -78,7 +76,6 @@
                 }
                 var dd = $('<dd/>');
                 var inputT = $('<input/>').addClass('userlist').attr('type', 'radio').attr('value', listusers[k].Username).attr('name', 'user');
-                //$('#cnxUser dl').append("<dd><input class='userlist' name='user' type='radio' value='" + listusers[k].Username + "' />" + listusers[k].Username + "</dd>");
                 if (select == listusers[k].Username) {
                     console.log('Cest le bon user : ' + select);
                     inputT.prop('checked', true);
@@ -160,16 +157,8 @@
         divPanelHead.append(spanGly).append('Chat avec : ' + name);
         divPanel.append(divPanelHead).append(divPanelBody).append(divPanelFooter);
         divCol.append(divPanel);
-
-        //var start = '<div class="col-md-12" id="' + id + '"><div class="panel panel-primary">';
-
-        //start = start + '<div class="panel-heading" ><span class="glyphicon glyphicon-comment"></span> Chat avec : '+name+'</div>';
-        //var middle = '<div class="panel-body"><ul class="chat"></ul></div>';
-        //var end = '<div class="panel-footer"><div class="input-group"><input id="btn-input' + id + '" type="text" class="form-control input-sm" placeholder="Votre texte..." /> <span class="input-group-btn"><button class="btn btn-warning btn-sm btnSend" onclick="sendMessage();">Envoyer</button> </span></div></div></div>';
         $('#chatList').append(divCol);
-
     }
-
     function addChat(from, text, time, to) {
         var pos = 'right';
         var id = from;
@@ -193,7 +182,6 @@
     }
     window.addChat = addChat;
 });
-
 function sendMessage() {
     var to = $('input[name=user]:checked').val();
     console.log(to);
@@ -209,14 +197,11 @@ function sendMessage() {
         }
     }
 }
-
 function sendKeyMessage(e) {
     if (e.which == 13) {
         sendMessage();
     }
 }
-
-
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -227,11 +212,8 @@ function getCookie(cname) {
     }
     return "";
 }
-
-
 function deleteAllCookies() {
     var cookies = document.cookie.split(";");
-
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i];
         var eqPos = cookie.indexOf("=");
@@ -239,4 +221,3 @@ function deleteAllCookies() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
 }
-
